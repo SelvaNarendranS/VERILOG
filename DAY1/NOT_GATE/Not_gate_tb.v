@@ -7,7 +7,7 @@ wire b;
 reg a;
 
 //instantiation
-not_gate not1( .a(a), .b(b));
+	not_gate not1( .a(a), .b(b) );
 
 initial begin 
 
@@ -22,3 +22,4 @@ initial begin
 end
 
 endmodule 
+
