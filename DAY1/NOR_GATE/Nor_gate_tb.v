@@ -11,9 +11,9 @@ module nor_gate_tb();
 
   initial begin 
 
-    $monitor("Time = %0t | a = %b | b = %b | c = %b ",$time, a, b);
-    dumpfile("nor_gate_dump.vcd");
-    dumpvars;
+    $monitor("Time = %0t | a = %b | b = %b | c = %b ",$time, a, b, c);
+    $dumpfile("nor_gate_dump.vcd");
+    $dumpvars;
 
     // combinations
     a = 0; b = 0; #5
