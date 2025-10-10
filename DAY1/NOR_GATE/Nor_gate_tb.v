@@ -11,7 +11,7 @@ module nor_gate_tb();
 
   initial begin 
 
-    $monitor("Time = %0t | a = %b | b = %b",$time, a, b);
+    $monitor("Time = %0t | a = %b | b = %b | c = %b ",$time, a, b);
     dumpfile("nor_gate_dump.vcd");
     dumpvars;
 
