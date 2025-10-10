@@ -2,7 +2,7 @@
 
 module and_gate_tb();
 wire c;  
-reg a,b;
+reg a, b;
 
 //instantiation 
 and_gate and1(.a(a), .b(b), .c(c));
