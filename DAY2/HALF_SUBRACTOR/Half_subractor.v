@@ -1,4 +1,4 @@
-// // Gate level implementation
+// Gate level implementation
 
 module half_subractor(input a, b, output difference, borrow);
   wire not_a;
