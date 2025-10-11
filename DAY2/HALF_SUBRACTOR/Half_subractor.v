@@ -1,6 +1,6 @@
 // // Gate level implementation
 
-module half_adder(input a, b, output difference, borrow);
+module half_subractor(input a, b, output difference, borrow);
   wire not_a;
   
   /* assign difference = a ^ b;
