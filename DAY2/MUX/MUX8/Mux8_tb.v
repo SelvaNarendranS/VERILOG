@@ -7,7 +7,7 @@ wire b;
 reg [7:0]a;
 reg [2:0]select_line;
 
-	// Instantiation
+	// Instantiation 
 	mux8 m8( .a(a), .select_line(select_line), .b(b));
 
 	initial begin
