@@ -5,13 +5,14 @@
 module even_parity_generator_tb;
 reg [3:0]a;
 wire b;
+wire [4:0]generated;
 
 	// intantation
-	even_parity_generator epg(.a(a), .b(b));	
+	even_parity_generator epg(.a(a), .b(b), .generated(generated));	
 
 	initial begin
 
-	$monitor("Time = %0t | a = %b | b = %b ", $time, a, b);
+	$monitor("Time = %0t | a = %b | b = %b | Generated = %b ", $time, a, b, generated);
 	$dumpfile("even_parity_generator_dump");
 	$dumpvars;
 
@@ -24,5 +25,6 @@ wire b;
 	
 	$finish;
 	end
+
 
 endmodule
