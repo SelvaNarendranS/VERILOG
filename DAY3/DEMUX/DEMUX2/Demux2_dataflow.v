@@ -10,5 +10,3 @@ output [1:0]b);
 	assign b = select_line ? {a, 1'b0} : {1'b0, a} ; // By conditional operator 
 
 endmodule
-
-
