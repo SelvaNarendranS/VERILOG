@@ -5,13 +5,14 @@
 module odd_parity_generator_tb;
 reg [3:0]a;
 wire b;
+wire [4:0]generated;
 
 	// intantation
-	odd_parity_generator epg(.a(a), .b(b));	
+	odd_parity_generator opg(.a(a), .b(b), .generated(generated));	
 
 	initial begin
 
-	$monitor("Time = %0t | a = %b | b = %b ", $time, a, b);
+	$monitor("Time = %0t | a = %b | b = %b | Generated = %b ", $time, a, b,generated);
 	$dumpfile("odd_parity_generator_dump");
 	$dumpvars;
 
