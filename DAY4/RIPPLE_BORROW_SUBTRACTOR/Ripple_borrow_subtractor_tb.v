@@ -1,8 +1,8 @@
-// Full subractor testbench
+// Full subtractor testbench
 
 `timescale 1ns/1ps
 
-module full_subractor_tb;
+module full_subtractor_tb;
 wire [3:0]difference;
 wire bout;
 reg [3:0]a, b;
@@ -11,7 +11,7 @@ reg bin;
 wire signed [3:0]sub_output;
 
 	//instantiation
-	ripple_borrow_subractor rbs(
+	ripple_borrow_subtractor rbs(
 	.difference(difference),
         .bout(bout),
 	.a(a), 
@@ -23,7 +23,7 @@ wire signed [3:0]sub_output;
 	initial begin
 	
 	$monitor("Time = %0t | a = %b(%0d) | b = %b(%0d) | bin = %b | difference = %b (%0d signed: %0d) | bout = %b", $time, a,a, b,b, bin, difference,difference,sub_output, bout);
-	$dumpfile("ripple_borrow_subractor_dump.vcd");
+	$dumpfile("ripple_borrow_subtractor_dump.vcd");
 	$dumpvars; 
 		
 	// combinations
@@ -37,5 +37,6 @@ wire signed [3:0]sub_output;
 
 
 endmodule
+
 
 
