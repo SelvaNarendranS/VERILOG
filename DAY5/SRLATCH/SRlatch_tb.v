@@ -10,6 +10,10 @@ integer i;
 	// instantiation 
 	srlatch sr0 (.rst(rst), .en(en), .s(s), .r(r), .q(q));
 
+	// clock generation
+	initial en = 0;
+	always #13 en = ~en;
+	
 	initial begin
 
 	$monitor("Time = %0t | reset = %b | enable = %b | S = %b | R = %b | Q = %b ", $time, rst, en, s, r, q);
@@ -48,4 +52,5 @@ integer i;
 	end
 
 endmodule		
+
 
