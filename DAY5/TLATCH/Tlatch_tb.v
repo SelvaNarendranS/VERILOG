@@ -11,6 +11,10 @@ integer i;
 	// instantiation 
 	tlatch tl0(.rst(rst), .en(en), .t(t), .q(q));
 
+	// clock generation
+	initial en = 0;
+	always #13 en = ~en;
+	
 	initial begin
 	
 	$monitor("Time = %0t | reset = %b | enable = %b | T = %b | Q = %b ", $time, rst, en, t, q);
@@ -47,3 +51,4 @@ integer i;
 
 endmodule
 	
+
