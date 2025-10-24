@@ -10,6 +10,10 @@ integer i;
 	// instantiation 
 	jklatch jk0 (.rst(rst), .en(en), .j(j), .k(k), .q(q));
 
+	// clock generation
+	initial en = 0;
+	always #13 en = ~en;
+	
 	initial begin
 
 	$monitor("Time = %0t | reset = %b | enable = %b | J = %b | K = %b | Q = %b ", $time, rst, en, j, k, q);
@@ -48,3 +52,4 @@ integer i;
 	end
 
 endmodule
+
