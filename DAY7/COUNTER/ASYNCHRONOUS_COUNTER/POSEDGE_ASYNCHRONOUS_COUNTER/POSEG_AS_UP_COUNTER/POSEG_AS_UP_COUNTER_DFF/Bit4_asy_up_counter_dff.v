@@ -1,6 +1,6 @@
 // 4 bit Asynchronous up - counter or ripple counter
 
-`include "../../../../../../DAY6/D_FLIP_FLOP/D_flip_flop.v"   // T Flip flop accessing
+`include "../../../../../../DAY6/D_FLIP_FLOP/D_flip_flop.v"   // D Flip flop accessing
 
 module asy_upcnt(
 input clk, rst,
