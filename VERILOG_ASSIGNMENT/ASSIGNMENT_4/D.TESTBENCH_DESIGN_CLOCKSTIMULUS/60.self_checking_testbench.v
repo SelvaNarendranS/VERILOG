@@ -27,7 +27,7 @@ module adder_tb;
             expected_sum = a + b;
             #1;
 
-            if (sum === expected_sum) begin
+            if (sum == expected_sum) begin
                 $display("PASS: time=%0t | a=%b | b=%b | expected=%b | got=%b",$time, a, b, expected_sum, sum);
             end else begin
                 $display("FAIL: time=%0t | a=%b | b=%b | expected=%b | got=%b", $time, a, b, expected_sum, sum);
@@ -47,3 +47,4 @@ module adder(
     assign sum = a + b;
 
 endmodule
+
