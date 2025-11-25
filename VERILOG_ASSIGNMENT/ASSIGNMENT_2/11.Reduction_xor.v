@@ -15,6 +15,7 @@ reg [2:0]x;
 	initial begin
 		a = 3'd4;
 		x = ^a;
-		$display("x(^a) = %b", x);
+		$display("x(^a) = %b", x); // 001
 	end
+
 endmodule
