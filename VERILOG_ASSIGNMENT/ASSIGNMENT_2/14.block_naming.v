@@ -16,7 +16,8 @@ reg [3:0]a= 4'b110x;
 			$display("(a==4'b1100) so Block B1");
 		end
 		else begin: B2 
-			$display("(a!=4'b1100) so Block B2");
+			$display("(a!=4'b1100) so Block B2"); // B2
 		end
 	end
+
 endmodule
