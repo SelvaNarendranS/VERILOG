@@ -15,6 +15,7 @@ reg [1:0]x;
 	initial begin
 		a = 4'd10;
 		x= (a>>1);
-		$display("x(a >> 1) = %b", x);
+		$display("x(a >> 1) = %b", x); // 0101
 	end
+
 endmodule
