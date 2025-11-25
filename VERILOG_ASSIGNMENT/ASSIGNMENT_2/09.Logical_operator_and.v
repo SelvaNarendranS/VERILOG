@@ -17,6 +17,7 @@ reg y;
 		a= 3'd5;
 		b= 3'b111;
 		y = a && b;
-		$display("y(a && b) = %b", y);
+		$display("y(a && b) = %b", y); // 1
 	end
+
 endmodule
