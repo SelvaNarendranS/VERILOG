@@ -17,6 +17,7 @@ reg [2:0]x;
 		a=3'd5;
 		b=3'b111;
 		x= a | b;
-		$display("x(a | b) = %b", x);
+		$display("x(a | b) = %b", x); // 111
 	end
+
 endmodule
