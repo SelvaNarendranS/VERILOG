@@ -20,6 +20,9 @@ module simple_ram_tb;
 	end
 
 	initial begin
+		$dumpfile("dump.vcd");
+		$dumpvars;
+		
 		// initialize
 		rw = 1;
 		addr = 0;
