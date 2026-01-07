@@ -10,7 +10,7 @@ module sync_fifo #(parameter DEPTH = 16, WIDTH = 8, ADDR = 4)
              output empty);
   
   reg [WIDTH - 1:0]mem[DEPTH -1:0];		// memory 
-  reg [ADDR - 1:0] wr_ptr, rd_ptr;			// write and read pointer
+  reg [ADDR - 1:0] wr_ptr, rd_ptr;		// write and read pointer
   
   always @(posedge clk) begin				// Write condition
     if(reset) begin
@@ -37,7 +37,11 @@ module sync_fifo #(parameter DEPTH = 16, WIDTH = 8, ADDR = 4)
     end
   end
   
-  assign full  = ((wr_ptr + 1'b1) == rd_ptr);		// full condition
-  assign empty = (wr_ptr == rd_ptr);			// empty condition
+   assign full  = ((wr_ptr + 1'b1) == rd_ptr);		// full condition         // one bit always be empty -- could not able to write
+  								               // if wr_ptr = 11   rd_ptr = 0
+  								               //   wr_ptr + 1'b1 means = 0 --- so full condition occurs --- binary addition -- due to the use of max bit size allocated it returned to "zero"
+                                       
+  assign empty = (wr_ptr == rd_ptr);			      // empty condition
   
+
 endmodule
