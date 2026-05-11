@@ -1,4 +1,4 @@
-// mux 2:1 
+// mux 2:1 -- data_flow, behavioural modeling
 
 // DUT
 module mux_2_1 #(parameter WIDTH = 8)(
