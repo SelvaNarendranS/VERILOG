@@ -48,6 +48,7 @@ module tzd_tb;
     
     a = 8'b1111_1111; #2;		// all high case
 
+    // random test cases
     repeat(5) begin
       a = $random;		#2;
     end
