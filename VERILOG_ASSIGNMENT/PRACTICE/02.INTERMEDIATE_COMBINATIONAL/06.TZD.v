@@ -1,5 +1,5 @@
 // Trailing zero detector
-
+ 
 // dut
 module tzd #(parameter WIDTH = 8) (
   input [WIDTH-1:0] a,
