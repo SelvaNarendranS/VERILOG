@@ -1,7 +1,7 @@
 // Handshake
 
 // DUT
-
+// MASTER MODUE
 module master #(parameter WIDTH = 8) (
   input clk,
   input rst,
@@ -32,7 +32,7 @@ module master #(parameter WIDTH = 8) (
   
 endmodule
 
-
+// SLAVE MODULE
 module slave #(parameter WIDTH = 8) (
   input clk,
   input rst,
