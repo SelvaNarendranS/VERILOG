@@ -4,15 +4,24 @@
 module shift_adder #(parameter WIDTH = 8)(
   input [WIDTH-1:0]a,
   input [WIDTH-1:0]b,
-  input [WIDTH-1:0]c,
-  output [1:0]carry,		
+  input cin,
+  output cout,		
   output reg [WIDTH-1:0] sum
 );
   
-  // behavioral modeling
-  always @(*) begin
-    {carry, sum} = ((a + b) + c);
-  end
+  wire [WIDTH-1:0] carry;
+  
+  assign carry[0] = cin;
+  
+  genvar i;
+  generate
+    for(i = 0; i < WIDTH; i++) begin : ripple_adder
+      assign sum[i] = a[i] ^ b [i] ^ carry[i];
+      assign carry[i+1] = (a[i] &  b[i]) | (a[i] & carry[i]) | (b[i] & carry[i]);
+    end
+  endgenerate
+  
+  assign cout = carry[WIDTH-1];
   
 endmodule
 
@@ -22,18 +31,18 @@ module shift_adder_tb;
   parameter WIDTH = 8;
   
   wire [WIDTH-1:0] sum;
-  wire [1:0]carry;
+  wire cout;
   reg [WIDTH-1:0]a;
   reg [WIDTH-1:0]b;
-  reg [WIDTH-1:0]c;
+  reg cin;
   
   // instantation
   shift_adder dut_inst(.a(a), 
-                      .b(b),
-                      .c(c),
-                      .sum(sum),
-                      .carry(carry)
-                     );
+                       .b(b),
+                       .cin(cin),
+                       .sum(sum),
+                       .cout(cout)
+                      );
   
   initial begin
     integer i;
@@ -42,13 +51,13 @@ module shift_adder_tb;
     $dumpvars(0, shift_adder_tb);
     
     $display("----- Ripple Carry Adder --------");
-    $monitor("time = %0t | a = %0d | b = %0d | c = %0d | sum = %0d | carry = %0d",$time, a, b, c, sum, carry);
+    $monitor("time = %0t | a = %0d | b = %0d | cin = %0d | sum = %0d | cout = %0d",$time, a, b, cin, sum, cout);
     
     // test stimulus  
     repeat(5) begin
       a = $random;
       b = $random;
-      c = $random; 		#2;
+      cin = $random; 		#2;
     end
     
     $finish;
